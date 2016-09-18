@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 500%;
+            list-style: none;
+            position: absolute;
+
+        }
+        ul li{
+            float: left;
+
+        }
+        ol{
+            position: absolute;
+            text-align: center;
+            line-height: 20px;
+            left: 50%;
+            margin-left:-80px;
+            bottom: 20px;
+
+        }
+        ol li{
+            list-style:none;
+            float: left;
+            background-color: #fff;
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            cursor:pointer;
+
+        }
+        .box {
+            width: 800px;
+            height: 450px;
+            margin:100px auto;
+            border: 1px solid #000;
+            position: relative;
+            padding: 10px;
+        }
+        .smallbox {
+            overflow: hidden;
+            width: 800px;
+            height: 450px;
+            position: relative;
+        }
+        .jt {
+            width: 800px;
+            position: absolute;
+            top: 180px;
+        }
+        .jt {
+            display: none;
+        }
+        .jt span {
+            position: absolute;
+            color: #000;
+            width: 50px;
+            height: 100px;
+            background-color: rgba(230,230,230,0.3);
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+
+        }
+        .lt {
+            left: 10px;
+        }
+        .rt {
+            right: 10px;
+        }
+        img {
+            width: 800px;
+        }
+        .color {
+            background:#ff0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var ul = document.getElementsByTagName('ul')[0];
+            var box = document.getElementsByClassName('box')[0];
+            var imgWidth = ul.children[0].children[0].offsetWidth;
+            var jt = document.getElementsByClassName('jt')[0];
+            console.log(jt.children[0]);
+            
+            var liArr = ul.children;
+            var key= 0,key2=0;
+            //复制第一个图片到最后
+            var newLi = liArr[0].cloneNode(true);
+            ul.appendChild(newLi);
+
+            //创建ol列表
+            var ol = document.createElement('ol');
+            box.appendChild(ol);
+            for (var i = 0; i < liArr.length-1;i++){
+                var olLi = document.createElement('li');
+                olLi.innerHTML = i+1;
+                ol.appendChild(olLi);
+            }
+            ol.children[0].className = 'color';
+            //鼠标经过改编ol中的li的背景颜色,并切换图片
+            for (var i = 0;i<ol.children.length;i++){
+                ol.children[i].index = i;
+                ol.children[i].onmouseover = function () {
+                    for (var j = 0; j <ol.children.length;j++){
+                        ol.children[j].className = '';
+                    }
+                    this.className += 'color';
+                    key = key2 = this.index;
+                    fn(ul,-this.index*imgWidth);
+                }
+            }
+
+            //添加计时器
+            var timer1 = setInterval(fn1,1000);
+
+            //左右切换图片
+            //鼠标经过清除定时器
+            box.onmouseover = function () {
+                jt.style.display = 'block';
+                clearInterval(timer1);
+            }
+            box.onmouseout = function () {
+                jt.style.display = 'none';
+                timer1 = setInterval(fn1,1000);
+            }
+            //向左移动ul
+            jt.children[1].onclick = fn1;
+
+
+            jt.children[0].onclick = function () {
+                key--;
+                if (key<0){
+                    ul.style.left = -imgWidth*(liArr.length-1) + 'px';
+                    //跳转到到数第一张图片的开头，然后缓动到倒数第二张图片开头
+                    //style.left为左边坐标
+                    key = liArr.length-2;
+                }
+                fn(ul,-key*imgWidth);
+                //编号
+                key2--;
+                if(key2 <0){
+                    key2 = ol.children.length-1;
+                }
+
+                for (var j = 0; j < ol.children.length; j++) {
+                    ol.children[j].className = '';
+                }
+                ol.children[key2].className = 'color';
+            }
+
+            //向左移动的函数
+                function fn1() {
+                    key++;
+                    if (key>liArr.length-1){
+                        key = 1;
+                        ul.style.left = 0;
+                    }
+                    fn(ul,-key*imgWidth);
+                    //编号
+                    key2++;
+                    if(key2 > ol.children.length-1){
+                        key2 = 0;
+                    }
+                    for (var j = 0; j < ol.children.length; j++) {
+                        ol.children[j].className = '';
+                    }
+                    ol.children[key2].className = 'color';
+                }
+            //缓动函数
+            function fn(ele,target){
+                clearInterval(ele.timer);
+                ele.timer = setInterval(function () {
+                    //获取步长
+                    var step = (target - ele.offsetLeft)/10;
+                    //处理步长
+                    step = step>0?Math.ceil(step):Math.floor(step);
+
+                    ele.style.left = ele.offsetLeft + step + 'px';
+
+                    if (Math.abs(target - ele.offsetLeft) <= Math.abs(step)){
+                        ele.style.left = target + 'px';
+                        clearInterval(ele.timer);
+                    }
+                },10)
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="smallbox">
+            <ul>
+                <li><img src="images/lang%20(1).jpg" alt=""></li>
+                <li><img src="images/lang%20(2).jpg" alt=""></li>
+                <li><img src="images/lang%20(3).jpg" alt=""></li>
+                <li><img src="images/lang%20(4).jpg" alt=""></li>
+            </ul>
+        </div>
+        <div class = 'jt' >
+            <span class = 'lt'>《</span>
+            <span class = 'rt'>》</span>
+        </div>
+     </div>
+</body>
+</html>
