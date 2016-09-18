@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* 蓝色企业集团公司网站模板 */
+
+/**news**/
+.news_yao{width:938px; height:auto; border:1px solid #d3d3d3; margin:0 auto; padding:20px;}
+.news_yao .n_box{width:938px; height:235px; background:url(../images/news_yao_line.jpg) center bottom no-repeat; padding-bottom:30px;}
+.news_yao .n_box .n_pic{width:323px; height:215px; float:left; padding:10px; background:#fff;}
+.news_yao .n_box .n_word{width:558px; height:235px; float:right; overflow:hidden;}
+.news_yao .n_box h3{color:#3d89c7; font-size:24px; font-weight:normal;}
+.news_yao .n_box .time{color:#606060; padding:8px 0; font-family:Arial;}
+.news_yao .n_box .n_text{line-height:22px; font-family:"宋体";}
+.news_yao .n_box .n_text a{color:#606060;}
+.news_yao .n_box .n_text a:hover{color:#333;}
+.news_yao .n_box .more{width:55px; background:url(../images/news_more.jpg) right center no-repeat; padding:15px 10px 15px 0;}
+.news_yao .n_box .more a{color:#3d89c7; font-family:"宋体";}
+
+.news_yao .n_yao{width:938px; height:142px; padding:18px 0; background:url(../images/news_yao_line.jpg) center bottom no-repeat;}
+.news_yao .n_yao .n_pic{width:197px; height:131px; background:#fff; padding:5px; float:left;}
+.news_yao .n_yao .n_word{width:694px; height:151px; float:right; overflow:hidden;}
+.news_yao .n_yao h3{color:#404040; font-size:18px; font-weight:normal;}
+.news_yao .n_yao .time{color:#606060; padding:5px 0; font-family:Arial;}
+.news_yao .n_yao .n_text{line-height:22px; font-family:"宋体";}
+.news_yao .n_yao .n_text a{color:#606060;}
+.news_yao .n_yao .n_text a:hover{color:#333;}
+.news_yao .n_yao .more{width:55px; background:url(../images/news_more.jpg) right center no-repeat; padding:8px 10px 8px 0;}
+.news_yao .n_yao .more a{color:#3d89c7; font-family:"宋体";}
+
+/**news_list**/
+.p_center{width:980px; height:auto; margin:0 auto;}
+.p_center .p_list{/*width:938px; */width:638px;height:auto; border:1px solid #d3d3d3; padding:5px 20px;float:left;}
+.p_center .p_list li{width:638px; /*width:938px; */height:16px; padding:14px 0 10px; background:url(../images/in_chang_line.gif) left bottom repeat-x; font-size:14px; overflow:hidden; font-family:"宋体"; *padding:12px 0 8px;}
+.p_center .p_list li a{/*width:830px; */width:630px; color:#606060; display:inline-block; float:left; background:url(../images/in_news_small.png) left center no-repeat; padding-left:15px;}
+.p_center .p_list li span{ display:inline-block; float:right; color:#999;}
+.p_center .p_list .li_last{background:none;}
+
+.p_center .page{width:454px; height:44px; margin:12px auto 0;}
+.p_center .page p{float:left;}
+.p_center .page .p_top{width:113px; height:42px; line-height:42px; background:url(../images/page_line.jpg) right center no-repeat;}
+.p_center .page .p_top a{width:53px; height:42px; display:inline-block; background:url(../images/page_left.jpg) left center no-repeat; padding-left:50px; color:#606060; font-size:14px;}
+.p_center .page .unm{height:42px; line-height:42px; padding-right:20px;}
+.p_center .page .unm a{padding-left:20px; color:#606060; font-size:14px;}
+.p_center .page .unm a:hover{color:#164f85;}
+.p_center .page .unm .now{color:#164f85}
+.p_center .page .p_down{width:93px; height:42px; line-height:42px; background:url(../images/page_line.jpg) left center no-repeat; color:#606060; padding-left:20px;}
+.p_center .page .p_down a{width:93px; height:42px; display:inline-block; background:url(../images/page_right.jpg) right center no-repeat;  color:#606060; font-size:14px;}
+
+
+/*新增右侧栏目*/
+.new_right{width:240px;height:auto; border:1px solid #d3d3d3; padding:5px 20px; float:left;float:right;}
+.new_right li{width:240px; /*width:938px; */height:16px; padding:14px 0 10px; background:url(../images/in_chang_line.gif) left bottom repeat-x; font-size:14px; overflow:hidden; font-family:"宋体"; *padding:12px 0 8px; font-size:12px;}
+.new_right a{/*width:830px; */width:160px; color:#606060; display:inline-block; float:left; background:url(../images/in_news_small.png) left center no-repeat; padding-left:15px; }
+.another{background:none; font-size:14px; color:#164F85; padding:0px;}
+.new_right li span{ display:inline-block; float:right; color:#999;}
+
